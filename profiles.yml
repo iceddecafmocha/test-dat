@@ -1,0 +1,10 @@
+# Profile for local/dev; Databricks job DBT task uses its own warehouse connection.
+query_insights_test:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      catalog: main
+      schema: "{{ env_var('DBT_SCHEMA', 'default') }}"
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
