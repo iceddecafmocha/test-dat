@@ -1,0 +1,16 @@
+# Minimal dbt project for Query Insights Timeline testing.
+# Use in a Databricks job DBT task (Serverless warehouse) so each model run appears in Timeline.
+name: query_insights_test_dbt
+version: "1.0.0"
+config-version: 2
+profile: query_insights_test
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  # Override in job or profile if needed
+  schema: default
